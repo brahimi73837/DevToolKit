@@ -1,32 +1,24 @@
-'use client'
+'use client';
 
 import { useState, useEffect } from 'react'
-import useMounted from '@/hooks/useMounted'
 import { HexColorPicker } from 'react-colorful'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { Button } from '@/components/ui/button'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
-import { Copy, Sun, Moon } from 'lucide-react'
-import { useTheme } from 'next-themes'
+import { Copy } from 'lucide-react'
 import Link from 'next/link'
 
 export default function ColorPicker() {
   const [color, setColor] = useState('#000000')
   const [rgbColor, setRgbColor] = useState({ r: 0, g: 0, b: 0 })
   const [hslColor, setHslColor] = useState({ h: 0, s: 0, l: 0 })
-  const { theme, setTheme } = useTheme()
-  const mounted = useMounted()
 
   useEffect(() => {
-    if (mounted) {
       updateRgbColor(color)
       updateHslColor(color)
-    }
-  }, [color, mounted])
-
-  if (!mounted) return null
+  }, [color])
 
   const updateRgbColor = (hex: string) => {
     const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex)
@@ -133,13 +125,6 @@ export default function ColorPicker() {
         <CardHeader>
           <CardTitle className="flex justify-between items-center">
             <span>Color Picker</span>
-            <Button
-              variant="outline"
-              size="icon"
-              onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
-            >
-              {theme === 'dark' ? <Sun className="h-[1.2rem] w-[1.2rem]" /> : <Moon className="h-[1.2rem] w-[1.2rem]" />}
-            </Button>
           </CardTitle>
         </CardHeader>
         <CardContent>
@@ -254,6 +239,7 @@ export default function ColorPicker() {
         </CardContent>
       </Card>
     </div>
+    
   )
 }
 

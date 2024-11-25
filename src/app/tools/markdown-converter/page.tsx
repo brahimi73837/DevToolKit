@@ -1,23 +1,18 @@
 'use client';
 
 import React, { useState } from 'react';
-import useMounted from '@/hooks/useMounted';
 import { marked } from 'marked';
 import DOMPurify from 'dompurify';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Textarea } from '@/components/ui/textarea';
-import { Copy, Sun, Moon } from 'lucide-react';
-import { useTheme } from 'next-themes';
+import { Copy } from 'lucide-react';
 import Link from 'next/link';
 
 export default function MarkdownConverter() {
   const [markdown, setMarkdown] = useState('# Hello World\n\nThis is a **markdown** preview.');
-  const { theme, setTheme } = useTheme();
-  const mounted = useMounted();
 
-  if (!mounted) return null;
 
   marked.setOptions({
     gfm: true,
@@ -47,17 +42,6 @@ export default function MarkdownConverter() {
         <CardHeader>
           <CardTitle className="flex justify-between items-center">
             <span>Markdown to HTML Converter</span>
-            <Button
-              variant="outline"
-              size="icon"
-              onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
-            >
-              {theme === 'dark' ? (
-                <Sun className="h-[1.2rem] w-[1.2rem]" />
-              ) : (
-                <Moon className="h-[1.2rem] w-[1.2rem]" />
-              )}
-            </Button>
           </CardTitle>
         </CardHeader>
         <CardContent>

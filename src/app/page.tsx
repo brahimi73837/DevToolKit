@@ -1,10 +1,5 @@
-'use client';
-
-import React, { useEffect, useState } from 'react';
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
-import { Paintbrush, FileCode, Sun, Moon } from 'lucide-react';
-import { useTheme } from 'next-themes';
+import { Paintbrush, FileCode } from 'lucide-react';
 import Link from 'next/link';
 
 const tools = [
@@ -23,30 +18,29 @@ const tools = [
     icon: FileCode,
     color: "text-blue-500 dark:text-blue-400",
     bgColor: "bg-blue-500/10 dark:bg-blue-400/10"
+  },
+  {
+    name: "Form Builder",
+    description: "Create forms with inputs, checkboxes, and buttons.",
+    href: "/tools/form-builder",
+    icon: FileCode,
+    color: "text-green-500 dark:text-green-400",
+    bgColor: "bg-green-500/10 dark:bg-green-400/10"
+  },
+  {
+    name: "Code Diff Viewer",
+    description: "Display side-by-side or inline comparisons between two versions of code to highlight differences.",
+    href: "/tools/code-difference",
+    icon: FileCode,
+    color: "text-orange-500 dark:text-orange-400",
+    bgColor: "bg-orange-500/10 dark:bg-orange-400/10"
   }
 ];
 
 export default function HomePage() {
-  const { theme, setTheme } = useTheme();
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
-  if (!mounted) return null;
 
   return (
     <div className="flex min-h-screen flex-col items-center justify-center bg-background">
-      <Button
-        variant="outline"
-        size="icon"
-        onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
-        className="absolute top-4 right-4 z-10"
-      >
-        {theme === 'dark' ? <Sun className="h-[1.2rem] w-[1.2rem]" /> : <Moon className="h-[1.2rem] w-[1.2rem]" />}
-      </Button>
-
       <main className="flex-1 flex items-center justify-center w-full">
         <section className="container grid grid-cols-1 gap-6 pb-8 pt-6 md:py-10 mx-4 max-w-7xl">
           <div className="flex flex-col items-center gap-4 mb-8">
@@ -57,10 +51,10 @@ export default function HomePage() {
               Here you can find a collection of tools to help you in your development process.
             </p>
           </div>
-          <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 justify-items-center">
+          <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3 justify-items-center">
             {tools.map((tool) => (
               <Link key={tool.name} href={tool.href} className="block">
-                <Card className="h-full transition-colors hover:bg-muted/50">
+                <Card className="h-full transition-colors hover:bg-muted/50 max-w-sm min-h-[200px] flex flex-col justify-between">
                   <CardHeader>
                     <div className="flex items-center gap-2">
                       <div className={`rounded-lg p-2 ${tool.bgColor}`}>
