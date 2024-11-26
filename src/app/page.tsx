@@ -1,5 +1,5 @@
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from '@/components/ui/card';
-import { Paintbrush, FileCode } from 'lucide-react';
+import { Paintbrush, FileCode, TextCursor, Monitor, Code, FileLock, LockKeyhole, QrCode } from 'lucide-react';
 import Link from 'next/link';
 
 const tools = [
@@ -23,7 +23,7 @@ const tools = [
     name: "Form Builder",
     description: "Create forms with inputs, checkboxes, and buttons.",
     href: "/tools/form-builder",
-    icon: FileCode,
+    icon: Code,
     color: "text-green-500 dark:text-green-400",
     bgColor: "bg-green-500/10 dark:bg-green-400/10"
   },
@@ -34,7 +34,48 @@ const tools = [
     icon: FileCode,
     color: "text-orange-500 dark:text-orange-400",
     bgColor: "bg-orange-500/10 dark:bg-orange-400/10"
+  },
+  {
+    name: "String Manipulation Toolkit", // New tool
+    description: "Perform common string manipulations like case conversion, trimming, and replacing characters.",
+    href: "/tools/string-manipulation",
+    icon: TextCursor, // Use an appropriate icon
+    color: "text-green-500 dark:text-green-400",
+    bgColor: "bg-green-500/10 dark:bg-green-400/10"
+  },
+  {
+    name: "Responsive Design Preview Tool", // New tool added
+    description: "Preview and test your web designs across various screen sizes and devices in real-time.",
+    href: "/tools/responsive-design-preview",
+    icon: Monitor, // Using the Monitor icon to represent responsive design
+    color: "text-indigo-500 dark:text-indigo-400",
+    bgColor: "bg-indigo-500/10 dark:bg-indigo-400/10"
+  },
+  {
+    name: "UUID Generator", // New Tool Added
+    description: 'Generate universally unique identifiers (UUIDs) for database records, session IDs, and more.',
+    href: "/tools/uuid-generator",
+    icon: FileLock, // Using the 'Code' icon for this tool
+    color: "text-indigo-500 dark:text-indigo-400",
+    bgColor: "bg-indigo-500/10 dark:bg-indigo-400/10"
+  },
+  {
+    name: "Password Generator", // New Tool Added
+    description: 'Generate secure passwords with customizable options',
+    href: "/tools/password-generator",
+    icon: LockKeyhole, // Using the 'Code' icon for this tool
+    color: "text-indigo-500 dark:text-indigo-400",
+    bgColor: "bg-indigo-500/10 dark:bg-indigo-400/10"
+  },
+  {
+    name: "QR Code Generator", // Tool Name
+    description: "Generate a QR code from any text or URL with customizable size and error correction levels.",
+    href: "/tools/qr-code-generator", // Path to the QR Code Generator Tool page
+    icon: QrCode, // Icon for QR code (can be replaced with a custom icon)
+    color: "text-teal-500 dark:text-teal-400", // Color for the icon (can be adjusted)
+    bgColor: "bg-teal-500/10 dark:bg-teal-400/10" // Background color for the tool's card (can be adjusted)
   }
+  
 ];
 
 export default function HomePage() {
