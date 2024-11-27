@@ -1,5 +1,5 @@
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from '@/components/ui/card';
-import { Paintbrush, FileCode, TextCursor, Monitor, Code, FileLock, LockKeyhole, QrCode } from 'lucide-react';
+import { Paintbrush, FileCode, TextCursor, Monitor, Code, FileLock, LockKeyhole, QrCode, Database } from 'lucide-react';
 import Link from 'next/link';
 
 const tools = [
@@ -74,6 +74,14 @@ const tools = [
     icon: QrCode, // Icon for QR code (can be replaced with a custom icon)
     color: "text-teal-500 dark:text-teal-400", // Color for the icon (can be adjusted)
     bgColor: "bg-teal-500/10 dark:bg-teal-400/10" // Background color for the tool's card (can be adjusted)
+  },
+  {
+    name: "Random Data Generator",
+    description: "Generate random data for testing or debugging purposes, including names, emails, and addresses.",
+    href: "/tools/random-data-generator",
+    icon: Database, // You can choose an appropriate icon
+    color: "text-purple-500 dark:text-purple-400",
+    bgColor: "bg-purple-500/10 dark:bg-purple-400/10"
   }
   
 ];
